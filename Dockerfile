@@ -1,5 +1,5 @@
 # Start from the code-server Debian base image
-FROM codercom/code-server:4.9.0
+FROM codercom/code-server:4.9.3
 
 USER coder
 
@@ -32,14 +32,7 @@ RUN code-server --install-extension esbenp.prettier-vscode
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
 # install nvm,  node, etc.
-RUN sudo mkdir /usr/local/nvm
-ENV NVM_DIR=/usr/local/nvm
-ENV NODE_VERSION=21.1.0
-RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+RUN sudo apt update && sudo apt-get install -y nodejs npm
 
 ENV NODE_PATH=$NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
