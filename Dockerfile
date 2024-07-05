@@ -34,9 +34,6 @@ RUN code-server --install-extension esbenp.prettier-vscode
 # install nvm,  node, etc.
 RUN sudo apt update && sudo apt-get install -y nodejs npm
 
-ENV NODE_PATH=$NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-
 # -----------
 
 
