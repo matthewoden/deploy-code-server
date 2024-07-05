@@ -32,7 +32,7 @@ RUN code-server --install-extension esbenp.prettier-vscode
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
 # install nvm,  node, etc.
-RUN mkdir /usr/local/nvm
+RUN sudo mkdir /usr/local/nvm
 ENV NVM_DIR=/usr/local/nvm
 ENV NODE_VERSION=21.1.0
 RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
