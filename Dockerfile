@@ -32,7 +32,7 @@ RUN code-server --install-extension esbenp.prettier-vscode
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
 # install nvm,  node, etc.
-RUN sudo apt update && sudo apt-get install -y nodejs npm
+RUN sudo apt update && sudo apt install -y nodejs npm
 
 # -----------
 
